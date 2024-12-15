@@ -1,21 +1,21 @@
-<!DOCTYPE html>
 <html>
   <head>
-    <title>Rive (JS) Quick Start</title>
-    <meta charset="UTF-8" />
+    <title>Rive Hello World</title>
   </head>
-
   <body>
-    <!-- https://rive.app/community/files/9376-17832-bearish-button// -->
-    <canvas
-      style="
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        background-color: #f15a22;
-      "
-      id="rive-canvas"
-    ></canvas>
-    <script src="./index.mjs" type="module"></script>
+    <canvas id="canvas" width="500" height="500"></canvas>
+
+    <script src="https://unpkg.com/@rive-app/canvas@2.7.0"></script>
+    <script>
+      const r = new rive.Rive({
+        src: "https://cdn.rive.app/animations/vehicles.riv",
+        canvas: document.getElementById("canvas"),
+        autoplay: true,
+        stateMachines: "bumpy",
+        onLoad: () => {
+          r.resizeDrawingSurfaceToCanvas();
+        },
+      });
+    </script>
   </body>
 </html>
